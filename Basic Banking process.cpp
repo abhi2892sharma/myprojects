@@ -6,12 +6,19 @@
 double deposit(double balance, double input)
 {
     double bal = balance + input;
-    return bal;
+    if(bal>0)
+        { return bal;}
+       
 }
 double withdraw(double balance, double input )
 {
     double bal = balance - input;
-    return bal;
+        if(bal<0)
+        { std::cout<<"Insufficent funds!!\n";
+        return balance;
+        }
+    else 
+        {return bal;}
 }
 void display( std::string name, double balance)
 {
@@ -49,7 +56,11 @@ while(task)
         {   
             std::cout<<" Enter the amount you want to Withdraw = $";
             std::cin>>input;
+            if(balance<0)
+                {std::cout<<"Insufficent funds!!\n";
+                std::cout<<" Your balance is"<< balance << '\n';}
             balance = withdraw(balance,input);
+              
         }
          else if(task == 3)
         {
@@ -60,5 +71,7 @@ while(task)
             std::cout<<" ***** Thank you for banking with us! ***** \n";
             return 0;
         }
+        
    }
 }
+
