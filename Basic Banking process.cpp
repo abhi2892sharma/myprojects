@@ -22,7 +22,7 @@ int main ()
 {
 double input;
 std::string name;
-char task;
+int task;
 double balance = 0;
 
 std::cout<<" Hello, Please enter your name = ";
@@ -33,29 +33,32 @@ while(task)
         std::cout<<"\n*************************************** \n";
         std::cout<<"*******Select one option \n";
         std::cout<<"*************************************** \n";
-        std::cout<<"D - Deposit \n";
-        std::cout<<"W - Withdraw \n";
-        std::cout<<"B - Displace Balance \n";
+        std::cout<<"1 - Deposit \n";
+        std::cout<<"2 - Withdraw \n";
+        std::cout<<"3 - Displace Balance \n";
+        std::cout<<"4 - Exit \n";
         std::cin>>task;
 
-        if(task == 'w' || task == 'W')
-        {
-            std::cout<<" Enter the amount you want to Withdraw = $";
-            std::cin>>input;
-            balance = withdraw(balance,input);  
-        }
-        else if(task == 'd' || task == 'D')
+        if(task == 1)
         {
             std::cout<<" Enter the amount you want to Deposit = $";
             std::cin>>input;
             balance = deposit(balance,input);
         }
-         else if(task == 'b' || task == 'B')
+        else if(task == 2)
+        {   
+            std::cout<<" Enter the amount you want to Withdraw = $";
+            std::cin>>input;
+            balance = withdraw(balance,input);
+        }
+         else if(task == 3)
         {
             display(name,balance);
         }
-     
-    std::cout<<" ***** Thank you for banking with us! ***** \n";
-
+        else if(task == 4)
+        {
+            std::cout<<" ***** Thank you for banking with us! ***** \n";
+            return 0;
+        }
    }
 }
